@@ -1,6 +1,4 @@
-### Demo
 
-https://code-sync.codersgyan.com/
 
 ## Local Setup
 
@@ -36,20 +34,4 @@ Example:
 
 ```http
 GET /api/sessions/abc-123/chat-history
-```
-
-Response shape:
-
-```json
-{
-	"roomId": "abc-123",
-	"messages": [
-		{
-			"roomId": "abc-123",
-			"username": "john",
-			"message": "Hello team",
-			"createdAt": "2026-03-29T12:00:00.000Z"
-		}
-	]
-}
 ```
