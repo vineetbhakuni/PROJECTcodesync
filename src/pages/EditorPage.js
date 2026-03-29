@@ -161,12 +161,14 @@ const EditorPage = () => {
                         ))}
                     </div>
                 </div>
-                <button className="btn copyBtn" onClick={copyRoomId}>
-                    Copy ROOM ID
-                </button>
-                <button className="btn leaveBtn" onClick={leaveRoom}>
-                    Leave
-                </button>
+                <div className="asideActions">
+                    <button className="btn copyBtn" onClick={copyRoomId}>
+                        Copy ROOM ID
+                    </button>
+                    <button className="btn leaveBtn" onClick={leaveRoom}>
+                        Leave
+                    </button>
+                </div>
             </div>
             <div className="editorWrap">
                 {socketInstance ? (

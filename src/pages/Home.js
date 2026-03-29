@@ -46,11 +46,18 @@ const Home = () => {
     return (
         <div className="homePageWrapper">
             <div className="formWrapper">
-                <img
-                    className="homePageLogo"
-                    src="/code-sync.png"
-                    alt="code-sync-logo"
-                />
+                <div className="homeBrand" aria-label="Code sync brand">
+                    <img
+                        className="homeBrandIcon"
+                        src="/code-sync.png"
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <div className="homeBrandText">
+                        <h1 className="homeBrandTitle">Code sync</h1>
+                        <p className="homeBrandTagline">Realtime collaboration</p>
+                    </div>
+                </div>
                 <h4 className="mainLabel">Paste invitation ROOM ID</h4>
                 <div className="inputGroup">
                     <input
