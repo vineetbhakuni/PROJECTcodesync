@@ -11,20 +11,26 @@ const configuredFrontendUrl = process.env.FRONTEND_URL;
 const renderExternalUrl = process.env.RENDER_EXTERNAL_URL;
 const defaultDevOrigin = 'http://localhost:3000';
 
-const allowedOrigins = [configuredFrontendUrl, renderExternalUrl, defaultDevOrigin].filter(
-    Boolean
-);
+function normalizeOrigin(value) {
+    return (value || '').trim().replace(/\/+$/, '');
+}
+
+const allowedOrigins = [configuredFrontendUrl, renderExternalUrl, defaultDevOrigin]
+    .map(normalizeOrigin)
+    .filter(Boolean);
 
 function isAllowedOrigin(origin) {
     if (!origin) {
         return true;
     }
-    return allowedOrigins.includes(origin);
+
+    const normalizedOrigin = normalizeOrigin(origin);
+    return allowedOrigins.includes(normalizedOrigin);
 }
 
 function resolveAllowedOriginHeader(origin) {
     if (origin && isAllowedOrigin(origin)) {
-        return origin;
+        return normalizeOrigin(origin);
     }
     return allowedOrigins[0] || '*';
 }

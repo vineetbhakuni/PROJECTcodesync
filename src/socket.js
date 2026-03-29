@@ -2,11 +2,12 @@ import { io } from 'socket.io-client';
 import { getBackendBaseUrl } from './utils/backendUrl';
 
 export const initSocket = async () => {
+    const backendBaseUrl = getBackendBaseUrl() || window.location.origin;
     const options = {
-        'force new connection': true,
-        reconnectionAttempt: 'Infinity',
-        timeout: 10000,
-        transports: ['websocket'],
+        forceNew: true,
+        reconnectionAttempts: Infinity,
+        timeout: 20000,
+        transports: ['websocket', 'polling'],
     };
-    return io(getBackendBaseUrl(), options);
+    return io(backendBaseUrl, options);
 };
